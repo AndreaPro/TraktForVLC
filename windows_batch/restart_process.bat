@@ -3,7 +3,7 @@
 :: Restart TraktForVLC process, you need to edit config.bat before
 ::
 :: Copyright (C) 2013      Damien Battistella <wifsimster@gmail.com>
-:: Copyright (C) 2015      RaphaÃ«l Beamonte <raphael.beamonte@gmail.com>
+:: Copyright (C) 2015      Raphaël Beamonte <raphael.beamonte@gmail.com>
 ::
 :: This file is part of TraktForVLC.  TraktForVLC is free software: you can
 :: redistribute it and/or modify it under the terms of the GNU General Public

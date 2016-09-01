@@ -1,4 +1,4 @@
-TraktForVLC [![Travis Build Status](https://travis-ci.org/XaF/TraktForVLC.svg?branch=master)](https://travis-ci.org/XaF/TraktForVLC) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/e1ie51bwhbki60ns/branch/master?svg=true)](https://ci.appveyor.com/project/XaF/traktforvlc/branch/master)
+﻿TraktForVLC [![Travis Build Status](https://travis-ci.org/XaF/TraktForVLC.svg?branch=master)](https://travis-ci.org/XaF/TraktForVLC) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/e1ie51bwhbki60ns/branch/master?svg=true)](https://ci.appveyor.com/project/XaF/traktforvlc/branch/master)
 ===========
 
 ## Table of Contents
@@ -157,7 +157,7 @@ concerned, and other options needed before running the ```set_registry_keys.bat`
 ```batch
 :::: Configuration to set the registry keys
 :: Set the full path to the VLC exe file on your computer
-set vlc_path=C:\your\path\to\VideoLAN\VLC\vlc.exe
+set "vlc_path="C:\your\path\to\VideoLAN\VLC\vlc.exe""
 
 :: Set the IP address VLC will listen to (default: localhost)
 set ip=localhost
@@ -316,4 +316,3 @@ available in your ```logs/``` directory.
 [VLC]: https://videolan.org/
 [GPLv2]: https://www.gnu.org/licenses/gpl-2.0.html
 [pin]: https://trakt.tv/pin/2498
-

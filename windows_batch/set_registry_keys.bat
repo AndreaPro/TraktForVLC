@@ -3,7 +3,7 @@
 :: Edit registry keys for VLC. Add needed options to launch extraintf.
 ::
 :: Copyright (C) 2013      Damien Battistella <wifsimster@gmail.com>
-:: Copyright (C) 2015      RaphaÃ«l Beamonte <raphael.beamonte@gmail.com>
+:: Copyright (C) 2015      Raphaël Beamonte <raphael.beamonte@gmail.com>
 ::
 :: This file is part of TraktForVLC.  TraktForVLC is free software: you can
 :: redistribute it and/or modify it under the terms of the GNU General Public
@@ -20,6 +20,7 @@
 :: or see <http://www.gnu.org/licenses/>.
 
 @echo off
+setlocal EnableDelayedExpansion
 
 :: Change current directory to the directory where we have out batch file
 cd /D %~dp0
@@ -35,10 +36,12 @@ echo VLC configuration : %ip%:%port%
 
 echo Editing your registry keys for formats "%formats%"
 
+set "vlc_path=!vlc_path:"=\"!"
+
 FOR %%G IN (%formats%) DO (
-	REG ADD "HKCR\VLC.%%G\shell\AddToPlaylistVLC\command" /ve /t REG_SZ /d "\"%vlc_path%\" %vlc_opts% --started-from-file --playlist-enqueue \"%%1\"" /f >NUL
-	REG ADD "HKCR\VLC.%%G\shell\Open\command" /ve /t REG_SZ /d "\"%vlc_path%\" %vlc_opts% --started-from-file \"%%1\"" /f >NUL
-	REG ADD "HKCR\VLC.%%G\shell\PlayWithVLC\command" /ve /t REG_SZ /d "\"%vlc_path%\" %vlc_opts% --started-from-file --no-playlist-enqueue \"%%1\"" /f >NUL
+	REG ADD "HKCR\VLC.%%G\shell\AddToPlaylistVLC\command" /ve /t REG_SZ /d "!vlc_path! %vlc_opts% --started-from-file --playlist-enqueue \"%%1\"" /f >NUL
+	REG ADD "HKCR\VLC.%%G\shell\Open\command" /ve /t REG_SZ /d "!vlc_path! %vlc_opts% --started-from-file \"%%1\"" /f >NUL
+	REG ADD "HKCR\VLC.%%G\shell\PlayWithVLC\command" /ve /t REG_SZ /d "!vlc_path! %vlc_opts% --started-from-file --no-playlist-enqueue \"%%1\"" /f >NUL
 )
 
 echo Registry keys modified, thanks for using !
